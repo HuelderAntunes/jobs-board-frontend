@@ -1,0 +1,121 @@
+.container {
+    background-color: #000;
+    width: 100%;
+    color: #FFFFFE;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding-top: 200px;
+}
+
+
+.container span {
+    color: #80807F;
+
+}
+
+
+.content h2 {
+    font-size: 24px;
+    margin: 0;
+    margin-bottom: 24px;
+}
+
+
+.bottom {
+    width: 85%;
+    border-top: 1px solid #808080;
+    padding: 10px;
+    font-size: 12px;
+    display: flex;
+    justify-content: space-between;
+}
+
+
+.bottom span {
+    background-color: #a21afc;
+    padding: 2px;
+    border-radius: 2px;
+    color: #ffffff;
+}
+
+
+.content {
+    width: 85%;
+    display: flex;
+    font-size: 12px;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+
+.content p {
+    font-size: 12px;
+    margin-bottom: 30px;
+}
+
+
+.content ul {
+    list-style-type: none;
+    padding: 0;
+    margin-left: 0;
+}
+
+
+.content li {
+    padding: 0;
+    margin: 0;
+}
+
+
+.message {
+    max-width: 50%;
+    flex: 1;
+}
+
+
+.message p {
+    max-width: 500px;
+}
+
+
+.linktree {
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 300px;
+    flex: 1;
+}
+
+
+.linktree a:hover {
+    color: #8e69b1;
+}
+
+
+.linktree > div {
+    flex: 1;
+}
+
+
+.iconlist {
+    display: flex;
+    justify-content: space-between;
+    max-width: 80px;
+}
+
+
+@media only screen and (max-width: 700px) {
+   .message {
+       max-width: 200%;
+       width: 1000px;
+       flex: auto;
+   }
+
+    .linktree {
+        width: 100%;
+        display: flex;
+        max-width: 100%;
+        flex: 0;
+    }
+}

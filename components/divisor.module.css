@@ -1,0 +1,13 @@
+.container {
+  width: 100%;
+  background-image: url('/divisor.svg');
+  background-position: center;
+  height: 300px;
+  margin-top: -50px;
+}
+
+@media only screen and (max-width: 600px) {
+  .container { 
+    margin-top: 0px;
+  }
+}

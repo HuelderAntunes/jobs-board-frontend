@@ -1,65 +1,47 @@
-import Head from 'next/head'
 import styles from '../styles/Home.module.css'
+import Navbar from '../components/navbar.js'
+import Hero from '../components/hero.js'
+import Board from '../components/board'
+import Divisor from '../components/divisor'
+import EmailForm from '../components/emailform'
+import Footer from '../components/footer'
+import SEO from '../components/seo'
+import { getJobsData } from '../lib/jobs'
+import { getTagsData } from '../lib/tags'
 
-export default function Home() {
+export default function Home ({ jobsData, tagsData }) {
+  const jobs = jobsData.success.jobs
+  const tags = tagsData.success
+
   return (
     <div className={styles.container}>
-      <Head>
-        <title>Create Next App</title>
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
-
+      <SEO />
+      <Navbar title='GAMES JOBS BRASIL' />
       <main className={styles.main}>
-        <h1 className={styles.title}>
-          Welcome to <a href="https://nextjs.org">Next.js!</a>
-        </h1>
-
-        <p className={styles.description}>
-          Get started by editing{' '}
-          <code className={styles.code}>pages/index.js</code>
-        </p>
-
-        <div className={styles.grid}>
-          <a href="https://nextjs.org/docs" className={styles.card}>
-            <h3>Documentation &rarr;</h3>
-            <p>Find in-depth information about Next.js features and API.</p>
-          </a>
-
-          <a href="https://nextjs.org/learn" className={styles.card}>
-            <h3>Learn &rarr;</h3>
-            <p>Learn about Next.js in an interactive course with quizzes!</p>
-          </a>
-
-          <a
-            href="https://github.com/vercel/next.js/tree/master/examples"
-            className={styles.card}
-          >
-            <h3>Examples &rarr;</h3>
-            <p>Discover and deploy boilerplate example Next.js projects.</p>
-          </a>
-
-          <a
-            href="https://vercel.com/import?filter=next.js&utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            className={styles.card}
-          >
-            <h3>Deploy &rarr;</h3>
-            <p>
-              Instantly deploy your Next.js site to a public URL with Vercel.
-            </p>
-          </a>
+        <Hero
+          title='A central para encontrar os melhores empregos na área de games.'
+          subtitle='ENCONTRE VAGAS. POSTE VAGAS. CRIE JOGOS.'
+          image='/hero1.svg'
+          button1='Postar uma vaga por R$49'
+          button2='Me avise sobre todas as vagas!'
+        />
+        <Divisor />
+        <Board className={styles.board} jobs={jobs} tags={tags} />
+        <div className={styles.spacing}></div>
+        <div className={styles.mail}>
+          <EmailForm />
         </div>
       </main>
-
-      <footer className={styles.footer}>
-        <a
-          href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Powered by{' '}
-          <img src="/vercel.svg" alt="Vercel Logo" className={styles.logo} />
-        </a>
-      </footer>
+      <Footer />
     </div>
   )
+}
+
+export async function getStaticProps () {
+  const jobsData = await getJobsData()
+  const tagsData = await getTagsData()
+
+  return {
+    props: { jobsData, tagsData }
+  }
 }
