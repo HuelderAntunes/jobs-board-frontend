@@ -8,9 +8,7 @@ import Divisor from '../../components/divisor'
 import ReactMarkdown from 'react-markdown'
 import { getJobData, getJobsData } from '../../lib/jobs'
 
-const JobPage = ({ jobData }) => {
-  const job = jobData
-
+const JobPage = ({ job }) => {
   const keywords = [
     'brasil',
     'vagas',
@@ -26,7 +24,7 @@ const JobPage = ({ jobData }) => {
     '3d'
   ]
 
-  job.tags.map(e => keywords.push(e.name))
+  if (job) job.tags.map(e => keywords.push(e.name))
 
   return (
     <div className={styles.container}>
@@ -68,12 +66,12 @@ const JobPage = ({ jobData }) => {
 export async function getStaticProps ({ params }) {
   let jobData = await getJobData(params.slug)
 
-  if (!jobData['success']) {
-    jobData = { tags: [] }
-  }
+  // if (!jobData['success']) {
+  //   jobData = {'success': { tags: [] }
+  // }
 
   return {
-    props: { jobData },
+    props: { job: jobData ? jobData.success : null },
     revalidate: 60
   }
 }
