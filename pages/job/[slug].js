@@ -26,7 +26,7 @@ const JobPage = ({ jobData }) => {
     '3d'
   ]
 
-  if (job.tags) {
+  if (job['tags']) {
     job.tags.map(e => keywords.push(e.name))
   }
 
@@ -47,9 +47,11 @@ const JobPage = ({ jobData }) => {
         </div>
         <div className={styles.jobInfo}>
           <h6>POSTADO EM {new Date(job.createdAt).toLocaleDateString()}</h6>
-          {job.tags.map(tag => {
-            return <span>{tag.name}</span>
-          })}
+          {job['tags']
+            ? job.tags.map(tag => {
+                return <span>{tag.name}</span>
+              })
+            : ''}
         </div>
 
         <div className={styles.jobDescription}>
