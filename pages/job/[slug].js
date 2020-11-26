@@ -26,9 +26,7 @@ const JobPage = ({ jobData }) => {
     '3d'
   ]
 
-  if (job['tags']) {
-    job.tags.map(e => keywords.push(e.name))
-  }
+  job.tags.map(e => keywords.push(e.name))
 
   return (
     <div className={styles.container}>
@@ -47,11 +45,9 @@ const JobPage = ({ jobData }) => {
         </div>
         <div className={styles.jobInfo}>
           <h6>POSTADO EM {new Date(job.createdAt).toLocaleDateString()}</h6>
-          {job['tags']
-            ? job.tags.map(tag => {
-                return <span>{tag.name}</span>
-              })
-            : ''}
+          {job.tags.map(tag => {
+            return <span>{tag.name}</span>
+          })}
         </div>
 
         <div className={styles.jobDescription}>
@@ -73,7 +69,7 @@ export async function getStaticProps ({ params }) {
   let jobData = await getJobData(params.slug)
 
   if (!jobData['success']) {
-    jobData = {}
+    jobData = { tags: [] }
   }
 
   return {
