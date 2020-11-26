@@ -26,7 +26,9 @@ const JobPage = ({ jobData }) => {
     '3d'
   ]
 
-  job.tags.map(e => keywords.push(e.name))
+  if (job.tags) {
+    job.tags.map(e => keywords.push(e.name))
+  }
 
   return (
     <div className={styles.container}>
