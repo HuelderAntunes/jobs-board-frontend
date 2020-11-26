@@ -9,6 +9,8 @@ import ReactMarkdown from 'react-markdown'
 import { getJobData, getJobsData } from '../../lib/jobs'
 
 const JobPage = ({ job }) => {
+  if (!job) return <></>
+
   const keywords = [
     'brasil',
     'vagas',
@@ -24,40 +26,32 @@ const JobPage = ({ job }) => {
     '3d'
   ]
 
-  const f = e => (job ? job[e] : '')
-
-  if (job) job.tags.map(e => keywords.push(e.name))
+  job.tags.map(e => keywords.push(e.name))
 
   return (
     <div className={styles.container}>
       <SEO
-        title={`Vaga de ${f('role')} na ${f('company')} - GJB`}
-        description={`A ${f('company')} está com uma vaga de emprego para ${f(
-          'role'
-        )}. A Games Jobs Brasil é um board de vagas de emprego na área de jogos. Encontre mais vagas para ${f(
-          'role'
-        )}.`}
+        title={`Vaga de ${job.role} na ${job.company} - GJB`}
+        description={`A ${job.company} está com uma vaga de emprego para ${job.role}. A Games Jobs Brasil é um board de vagas de emprego na área de jogos. Encontre mais vagas para ${job.role}.`}
         keywords={`${keywords.join(',')}`}
       />
       <Navbar title='GAMES JOBS BRASIL' />
       <main className={styles.main}>
         <div className={styles.jobTitle}>
           <img src={job.companyAvatar} alt='' srcset='' />
-          <h1>{f('role')}</h1>
-          <h2>{f('company')}</h2>
-          <a href={f('applicationUrl')}>Me Candidatar</a>
+          <h1>{job.role}</h1>
+          <h2>{job.company}</h2>
+          <a href={job.applicationUrl}>Me Candidatar</a>
         </div>
         <div className={styles.jobInfo}>
           <h6>POSTADO EM {new Date(job.createdAt).toLocaleDateString()}</h6>
-          {job
-            ? job.tags.map(tag => {
-                return <span>{tag.name}</span>
-              })
-            : ''}
+          {job.tags.map(tag => {
+            return <span>{tag.name}</span>
+          })}
         </div>
 
         <div className={styles.jobDescription}>
-          <ReactMarkdown>{f('description')}</ReactMarkdown>
+          <ReactMarkdown>{job.description}</ReactMarkdown>
         </div>
 
         <Divisor />
