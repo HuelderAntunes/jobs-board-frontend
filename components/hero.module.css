@@ -36,6 +36,7 @@
 }
 
 .link_text_mark {
+  cursor: pointer;
   margin: 30px;
   margin-left: 0;
   display: inline-block;
@@ -59,7 +60,6 @@
   flex-wrap: wrap-reverse;
   width: 90%;
   background-color: #fffffe;
-  /* z-index: 1; */
 }
 
 .featured_image {

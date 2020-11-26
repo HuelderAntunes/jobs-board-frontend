@@ -9,6 +9,42 @@ import { AiOutlineCloseCircle } from 'react-icons/ai'
 export default function Board ({ jobs, tags }) {
   const [tagFilter, setTagFilter] = useState([])
   const [jobsFilter, setJobsFilter] = useState(jobs)
+  const [searchFilter, setSearchFilter] = useState('')
+
+  const applyFilters = (e, { newTagFilterState, newSearchFilterState }) => {
+    if (newTagFilterState.length > 0 || newSearchFilterState.length > 0) {
+      setJobsFilter(
+        jobs.filter(job => {
+          let searchResult = true
+          if (newSearchFilterState.length > 0) {
+            searchResult = Object.values(job)
+              .join('')
+              .toLocaleLowerCase()
+              .includes(newSearchFilterState.toLocaleLowerCase())
+          }
+
+          let tagsFilter = true
+          if (newTagFilterState.length > 0) {
+            tagsFilter =
+              job.tags.filter(t => newTagFilterState.includes(t.name)).length >
+              0
+          }
+
+          return tagsFilter && searchResult
+        })
+      )
+    } else {
+      setJobsFilter(jobs)
+    }
+  }
+
+  const handleSearchFilter = e => {
+    setSearchFilter(e.target.value)
+    applyFilters(e, {
+      newTagFilterState: tagFilter,
+      newSearchFilterState: e.target.value
+    })
+  }
 
   const toggleTagFilter = (e, tag) => {
     let newTagFilterState = tagFilter
@@ -19,25 +55,18 @@ export default function Board ({ jobs, tags }) {
     }
 
     setTagFilter(newTagFilterState)
-
-    if (newTagFilterState.length > 0) {
-      setJobsFilter(
-        jobs.filter(job => {
-          console.log(job.tags)
-          return (
-            job.tags.filter(t => newTagFilterState.includes(t.name)).length > 0
-          )
-        })
-      )
-    } else {
-      setJobsFilter(jobs)
-    }
+    applyFilters(e, {
+      newTagFilterState: newTagFilterState,
+      newSearchFilterState: searchFilter
+    })
   }
 
   return (
     <div className={styles.container}>
       <div className={styles.box_limiter}>
         <input
+          value={searchFilter}
+          onChange={handleSearchFilter}
           placeholder='e.g. remote, ustwo, virtual reality, los angeles'
           className={styles.search}
           type='text'
@@ -57,15 +86,19 @@ export default function Board ({ jobs, tags }) {
         </div>
 
         <ul className={styles.board}>
-          {jobsFilter.map(job => (
-            <Job
-              key={job.company + job.role + job.createdAt}
-              company={job.company}
-              companyAvatar={job.companyAvatar}
-              role={job.role}
-              id={job.id}
-            />
-          ))}
+          {jobsFilter.length > 0 ? (
+            jobsFilter.map(job => (
+              <Job
+                key={job.company + job.role + job.createdAt}
+                company={job.company}
+                companyAvatar={job.companyAvatar}
+                role={job.role}
+                slug={job.slug}
+              />
+            ))
+          ) : (
+            <p>Não foi encontrada nenhuma vaga com seus requisitos.</p>
+          )}
         </ul>
       </div>
     </div>

@@ -49,17 +49,17 @@ export default function Footer () {
               <span>CONTATE-NOS</span>
               <ul className={styles.iconlist}>
                 <li>
-                  <a href='#'>
+                  <a href='malito:contact@fluxel.co'>
                     <GrMail />
                   </a>
                 </li>
                 <li>
-                  <a href='#'>
+                  <a href='https://twitter.com/gamesjobsbr'>
                     <FaTwitterSquare />
                   </a>
                 </li>
                 <li>
-                  <a href='#'>
+                  <a href='https://gamesjobs.com.br/discord'>
                     <FaDiscord />
                   </a>
                 </li>

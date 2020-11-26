@@ -1,17 +1,22 @@
 import styles from './navbar.module.css'
+import Link from 'next/link'
 import { useState } from 'react'
 
 export default function Navbar (props) {
+  function handleToBoardClick (e) {
+    props.boardRef.current.scrollIntoView({ behavior: 'smooth' })
+  }
+
   return (
     <nav className={styles.nav}>
       <div className={styles.title}>
-        <a href='/'>{props.title}</a>
+        <Link href={`/`}>{props.title}</Link>
         <span className={styles.beta_tag}>beta</span>
       </div>
       <div>
         <ul className={styles.menu}>
           <li className={styles.menu_item}>
-            <a href='#'>Explorar Vagas</a>
+            <span onClick={handleToBoardClick}>Explorar Vagas</span>
           </li>
           <li className={styles.menu_button}>
             <a href='#'>Postar Vaga</a>

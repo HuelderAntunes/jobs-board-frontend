@@ -11,16 +11,37 @@ import { getJobData, getJobsData } from '../../lib/jobs'
 const JobPage = ({ jobData }) => {
   const job = jobData.success
 
+  const keywords = [
+    'brasil',
+    'vagas',
+    'jobs',
+    'games',
+    'jogos',
+    'empregos',
+    'unity',
+    'unreal',
+    'godot',
+    'code',
+    'arte',
+    '3d'
+  ]
+
+  job.tags.map(e => keywords.push(e.name))
+
   return (
     <div className={styles.container}>
-      <SEO />
+      <SEO
+        title={`Vaga de ${job.role} na ${job.company} - GJB`}
+        description={`A ${job.company} está com uma vaga de emprego para ${job.role}. A Games Jobs Brasil é um board de vagas de emprego na área de jogos. Encontre mais vagas para ${job.role}.`}
+        keywords={`${keywords.join(',')}`}
+      />
       <Navbar title='GAMES JOBS BRASIL' />
       <main className={styles.main}>
         <div className={styles.jobTitle}>
           <img src={job.companyAvatar} alt='' srcset='' />
           <h1>{job.role}</h1>
           <h2>{job.company}</h2>
-          <a href={job.applicationUrl}>Se candidatar para Vaga</a>
+          <a href={job.applicationUrl}>Me Candidatar</a>
         </div>
         <div className={styles.jobInfo}>
           <h6>POSTADO EM {new Date(job.createdAt).toLocaleDateString()}</h6>
@@ -45,7 +66,7 @@ const JobPage = ({ jobData }) => {
 }
 
 export async function getStaticProps ({ params }) {
-  const jobData = await getJobData(params.id)
+  const jobData = await getJobData(params.slug)
 
   return {
     props: { jobData }
@@ -57,7 +78,7 @@ export async function getStaticPaths () {
   const paths = []
 
   jobsData.success.jobs.map(job =>
-    paths.push({ params: { id: job.id.toString() } })
+    paths.push({ params: { slug: job.slug.toString() } })
   )
 
   return {

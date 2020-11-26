@@ -13,6 +13,9 @@
   vertical-align: middle;
 }
 
+.width {
+  width: 100%;
+}
 
 .main {
   margin: 0;
@@ -134,3 +137,4 @@
   margin-right: 3px;
   color: rgb(245, 245, 245);
 }
+

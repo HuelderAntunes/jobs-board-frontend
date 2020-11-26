@@ -16,6 +16,10 @@
   line-height: 20px;
 }
 
+.menu_item span {
+  cursor: pointer;
+}
+
 .menu_item :hover {
   color: rgb(137, 53, 247);
 }
@@ -43,7 +47,7 @@
   justify-content: space-between;
   align-items: center;
   padding: 0 1%;
-  width: 90%;
+  width: 100%;
 }
 
 .title {
