@@ -9,7 +9,7 @@ import ReactMarkdown from 'react-markdown'
 import { getJobData, getJobsData } from '../../lib/jobs'
 
 const JobPage = ({ jobData }) => {
-  const job = jobData.success
+  const job = jobData
 
   const keywords = [
     'brasil',
@@ -66,10 +66,15 @@ const JobPage = ({ jobData }) => {
 }
 
 export async function getStaticProps ({ params }) {
-  const jobData = await getJobData(params.slug)
+  let jobData = await getJobData(params.slug)
+
+  if (!jobData['success']) {
+    jobData = {}
+  }
 
   return {
-    props: { jobData }
+    props: { jobData },
+    revalidate: 60
   }
 }
 
