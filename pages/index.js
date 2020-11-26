@@ -52,6 +52,7 @@ export async function getStaticProps () {
   const tagsData = await getTagsData()
 
   return {
-    props: { jobsData, tagsData }
+    props: { jobsData, tagsData },
+    revalidate: 10
   }
 }
