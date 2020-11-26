@@ -43,9 +43,11 @@ const JobPage = ({ job }) => {
         </div>
         <div className={styles.jobInfo}>
           <h6>POSTADO EM {new Date(job.createdAt).toLocaleDateString()}</h6>
-          {job.tags.map(tag => {
-            return <span>{tag.name}</span>
-          })}
+          {job
+            ? job.tags.map(tag => {
+                return <span>{tag.name}</span>
+              })
+            : ''}
         </div>
 
         <div className={styles.jobDescription}>
