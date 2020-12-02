@@ -96,14 +96,18 @@
   box-shadow: 0 0 0 4px rgba(102, 0, 235, 0.25);
 }
 
-.jobTitle img {
+.jobImage {
   background-color: rgb(137, 53, 247);
   height: 80px;
   width: 80px;
   margin: 25px;
-  border-radius: 20px;
+  
   border: 0;
   user-select: none;
+}
+
+.jobTitle img {
+  border-radius: 20px;
 }
 
 

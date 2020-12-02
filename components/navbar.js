@@ -1,9 +1,13 @@
 import styles from './navbar.module.css'
 import Link from 'next/link'
 import { useState } from 'react'
+import Router from 'next/router'
 
 export default function Navbar (props) {
   function handleToBoardClick (e) {
+    if (!props.boardRef) {
+      return Router.push('/')
+    }
     props.boardRef.current.scrollIntoView({ behavior: 'smooth' })
   }
 

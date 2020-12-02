@@ -7,6 +7,7 @@ import EmailForm from '../../components/emailform'
 import Divisor from '../../components/divisor'
 import ReactMarkdown from 'react-markdown'
 import { getJobData, getJobsData } from '../../lib/jobs'
+import Image from 'next/image'
 
 const JobPage = ({ job }) => {
   if (!job) return <></>
@@ -38,7 +39,14 @@ const JobPage = ({ job }) => {
       <Navbar title='GAMES JOBS BRASIL' />
       <main className={styles.main}>
         <div className={styles.jobTitle}>
-          <img src={job.companyAvatar} alt='' srcset='' />
+          <div className={styles.jobImage}>
+            <Image
+              width='80'
+              height='80'
+              src={job.companyAvatar}
+              alt={`Vaga de ${job.role} na ${job.company}`}
+            />
+          </div>
           <h1>{job.role}</h1>
           <h2>{job.company}</h2>
           <a href={job.applicationUrl}>Me Candidatar</a>
