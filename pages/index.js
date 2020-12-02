@@ -29,7 +29,7 @@ export default function Home ({ jobsData, tagsData }) {
           title='A central para encontrar os melhores empregos na área de games.'
           subtitle='ENCONTRE VAGAS. POSTE VAGAS. CRIE JOGOS.'
           image='/hero1.svg'
-          button1='Postar uma vaga de graça!'
+          button1='Postar uma vaga'
           button2='Me avise sobre todas as vagas!'
           button2Ref={emailFormRef}
         />
