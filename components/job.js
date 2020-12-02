@@ -1,4 +1,5 @@
 import styles from './job.module.css'
+import Image from 'next/image'
 import Link from 'next/link'
 export default function Job ({ slug, company, companyAvatar, role }) {
   return (
@@ -6,7 +7,13 @@ export default function Job ({ slug, company, companyAvatar, role }) {
       <Link href={`/job/${slug}`}>
         <div className={styles.card}>
           <div className={styles.description}>
-            <img className={styles.avatar} src={companyAvatar} />
+            <Image
+              className={styles.avatar}
+              width='50'
+              height='50'
+              src={companyAvatar}
+              alt={`Vaga de ${role} na ${company}`}
+            />
 
             <p className={styles.text}>
               <span className={styles.text_bold}>{company}</span> está

@@ -19,7 +19,7 @@ export default function Navbar (props) {
             <span onClick={handleToBoardClick}>Explorar Vagas</span>
           </li>
           <li className={styles.menu_button}>
-            <a href='#'>Postar Vaga</a>
+            <a href='https://forms.gle/XpX584Rp6izNTuZj9'>Postar Vaga</a>
           </li>
         </ul>
       </div>
