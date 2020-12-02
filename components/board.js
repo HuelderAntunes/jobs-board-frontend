@@ -8,13 +8,13 @@ import { AiOutlineCloseCircle } from 'react-icons/ai'
 
 export default function Board ({ jobs, tags }) {
   const [tagFilter, setTagFilter] = useState([])
-  const [jobsFilter, setJobsFilter] = useState(jobs)
+  const [jobsFilter, setJobsFilter] = useState(jobs.reverse())
   const [searchFilter, setSearchFilter] = useState('')
 
   const applyFilters = (e, { newTagFilterState, newSearchFilterState }) => {
     if (newTagFilterState.length > 0 || newSearchFilterState.length > 0) {
       setJobsFilter(
-        jobs.filter(job => {
+        jobs.reverse().filter(job => {
           let searchResult = true
           if (newSearchFilterState.length > 0) {
             searchResult = Object.values(job)
@@ -34,7 +34,7 @@ export default function Board ({ jobs, tags }) {
         })
       )
     } else {
-      setJobsFilter(jobs)
+      setJobsFilter(jobs.reverse())
     }
   }
 
@@ -87,17 +87,15 @@ export default function Board ({ jobs, tags }) {
 
         <ul className={styles.board}>
           {jobsFilter.length > 0 ? (
-            jobsFilter
-              .reverse()
-              .map(job => (
-                <Job
-                  key={job.company + job.role + job.createdAt}
-                  company={job.company}
-                  companyAvatar={job.companyAvatar}
-                  role={job.role}
-                  slug={job.slug}
-                />
-              ))
+            jobsFilter.map(job => (
+              <Job
+                key={job.company + job.role + job.createdAt}
+                company={job.company}
+                companyAvatar={job.companyAvatar}
+                role={job.role}
+                slug={job.slug}
+              />
+            ))
           ) : (
             <p>Não foi encontrada nenhuma vaga com seus requisitos.</p>
           )}
