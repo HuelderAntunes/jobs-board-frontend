@@ -54,18 +54,15 @@
     cursor: pointer;
 }
 
-
 .input_wrapper {
     display: flex;
     flex: 1;
     width: 100%;
 }
 
-
 .alert {
     font-size: 12px;
 }
-
 
 .title {
     margin-top: 0;

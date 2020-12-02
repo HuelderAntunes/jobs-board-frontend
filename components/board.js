@@ -87,15 +87,17 @@ export default function Board ({ jobs, tags }) {
 
         <ul className={styles.board}>
           {jobsFilter.length > 0 ? (
-            jobsFilter.map(job => (
-              <Job
-                key={job.company + job.role + job.createdAt}
-                company={job.company}
-                companyAvatar={job.companyAvatar}
-                role={job.role}
-                slug={job.slug}
-              />
-            ))
+            jobsFilter
+              .reverse()
+              .map(job => (
+                <Job
+                  key={job.company + job.role + job.createdAt}
+                  company={job.company}
+                  companyAvatar={job.companyAvatar}
+                  role={job.role}
+                  slug={job.slug}
+                />
+              ))
           ) : (
             <p>Não foi encontrada nenhuma vaga com seus requisitos.</p>
           )}
