@@ -8,13 +8,13 @@ import { AiOutlineCloseCircle } from 'react-icons/ai'
 
 export default function Board ({ jobs, tags }) {
   const [tagFilter, setTagFilter] = useState([])
-  const [jobsFilter, setJobsFilter] = useState(jobs.reverse())
+  const [jobsFilter, setJobsFilter] = useState(jobs)
   const [searchFilter, setSearchFilter] = useState('')
 
   const applyFilters = (e, { newTagFilterState, newSearchFilterState }) => {
     if (newTagFilterState.length > 0 || newSearchFilterState.length > 0) {
       setJobsFilter(
-        jobs.reverse().filter(job => {
+        jobs.filter(job => {
           let searchResult = true
           if (newSearchFilterState.length > 0) {
             searchResult = Object.values(job)
@@ -34,7 +34,7 @@ export default function Board ({ jobs, tags }) {
         })
       )
     } else {
-      setJobsFilter(jobs.reverse())
+      setJobsFilter(jobs)
     }
   }
 

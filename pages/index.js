@@ -11,7 +11,7 @@ import { getJobsData } from '../lib/jobs'
 import { getTagsData } from '../lib/tags'
 
 export default function Home ({ jobsData, tagsData }) {
-  const jobs = jobsData.success.jobs
+  const jobs = jobsData.success.jobs.reverse()
   const tags = tagsData.success
   const emailFormRef = useRef()
   const boardRef = useRef()
