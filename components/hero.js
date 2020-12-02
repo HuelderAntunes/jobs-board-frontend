@@ -21,7 +21,7 @@ export default function Hero ({
         <h2 className={styles.subtitle}>{subtitle}</h2>
         <h1 className={styles.title}>{title}</h1>
         <div>
-          <a className={styles.btn} href='#'>
+          <a className={styles.btn} href='https://forms.gle/XpX584Rp6izNTuZj9'>
             {button1}
           </a>
           <a className={styles.link_text_mark} onClick={handleToMailClick}>

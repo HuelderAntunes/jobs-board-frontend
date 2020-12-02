@@ -29,13 +29,17 @@ export default function Footer () {
             <span>NAVEGAÇÃO</span>
             <ul>
               <li>
-                <a href='#'>Postar uma Vaga</a>
+                <a href='https://forms.gle/XpX584Rp6izNTuZj9'>
+                  Postar uma Vaga
+                </a>
               </li>
               <li>
-                <a href='#'>Termos de Serviço</a>
+                <a href='https://pastebin.com/pizZmhwL'>Termos de Serviço</a>
               </li>
               <li>
-                <a href='#'>Política de Privacidade</a>
+                <a href='https://pastebin.com/dmPED8A7'>
+                  Política de Privacidade
+                </a>
               </li>
               <li>
                 <a href='#'>RSS</a>
