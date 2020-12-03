@@ -65,9 +65,9 @@ export default function Footer () {
                   </a>
                 </li>
                 <li>
-                  <Link href={`/discord`}>
+                  <a href={`https://discord.gg/jvrkvFBGEM`}>
                     <FaDiscord />
-                  </Link>
+                  </a>
                 </li>
               </ul>
             </IconContext.Provider>
@@ -75,9 +75,7 @@ export default function Footer () {
         </div>
       </div>
       <div className={styles.bottom}>
-        <div>
-          Made by <span>@huelderantunes</span> e <span>@leeoanim</span>.
-        </div>
+        <div></div>
         <div>© {new Date().getFullYear()} Fluxel Solutions LTDA</div>
       </div>
     </footer>
