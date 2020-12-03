@@ -2,6 +2,8 @@ import styles from './footer.module.css'
 import { IconContext } from 'react-icons'
 import { FaDiscord, FaTwitterSquare } from 'react-icons/fa'
 import { GrMail } from 'react-icons/gr'
+import Link from 'next/link'
+
 export default function Footer () {
   return (
     <footer className={styles.container}>
@@ -63,9 +65,9 @@ export default function Footer () {
                   </a>
                 </li>
                 <li>
-                  <a href='https://gamesjobs.com.br/discord'>
+                  <Link href={`/discord`}>
                     <FaDiscord />
-                  </a>
+                  </Link>
                 </li>
               </ul>
             </IconContext.Provider>
