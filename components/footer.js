@@ -55,7 +55,7 @@ export default function Footer () {
               <span>CONTATE-NOS</span>
               <ul className={styles.iconlist}>
                 <li>
-                  <a href='malito:contact@fluxel.co'>
+                  <a href='mailto:contact@fluxel.co'>
                     <GrMail />
                   </a>
                 </li>
