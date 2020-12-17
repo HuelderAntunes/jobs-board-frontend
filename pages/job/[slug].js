@@ -57,7 +57,9 @@ const JobPage = ({ job }) => {
           </div>
           <h1>{job.role}</h1>
           <h2>{job.company}</h2>
-          <a href={job.applicationUrl}>Me Candidatar</a>
+          <a target='_blank' href={job.applicationUrl}>
+            Me Candidatar
+          </a>
         </div>
         <div className={styles.jobInfo}>
           <h6>POSTADO EM {new Date(job.createdAt).toLocaleDateString()}</h6>
