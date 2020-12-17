@@ -36,7 +36,7 @@ const JobPage = ({ job }) => {
       <Head>
         <script
           type='application/ld+json'
-          dangerouslySetInnerHTML={toGoogleJobBoardJson(job)}
+          dangerouslySetInnerHTML={{ __html: toGoogleJobBoardJson(job) }}
         ></script>
       </Head>
       <SEO
