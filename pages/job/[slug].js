@@ -1,5 +1,6 @@
 import styles from '../../styles/Home.module.css'
 import { useRouter } from 'next/router'
+import Head from 'next/head'
 import SEO from '../../components/seo'
 import Navbar from '../../components/navbar.js'
 import Footer from '../../components/footer.js'
@@ -9,7 +10,6 @@ import ReactMarkdown from 'react-markdown'
 import { getJobData, getJobsData } from '../../lib/jobs'
 import { toGoogleJobBoardJson } from '../../lib/googleboard'
 import Image from 'next/image'
-import Helmet from 'react-helmet'
 
 const JobPage = ({ job }) => {
   if (!job) return <></>
@@ -33,9 +33,9 @@ const JobPage = ({ job }) => {
 
   return (
     <div className={styles.container}>
-      <Helmet>
+      <Head>
         <script type='application/ld+json'>{toGoogleJobBoardJson(job)}</script>
-      </Helmet>
+      </Head>
       <SEO
         title={`Vaga de ${job.role} na ${job.company} - GJB`}
         description={`A ${job.company} está com uma vaga de emprego para ${job.role}. A Games Jobs Brasil é um board de vagas de emprego na área de jogos. Encontre mais vagas para ${job.role}.`}
