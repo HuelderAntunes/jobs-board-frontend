@@ -34,7 +34,10 @@ const JobPage = ({ job }) => {
   return (
     <div className={styles.container}>
       <Head>
-        <script type='application/ld+json'>{toGoogleJobBoardJson(job)}</script>
+        <script
+          type='application/ld+json'
+          dangerouslySetInnerHTML={toGoogleJobBoardJson(job)}
+        ></script>
       </Head>
       <SEO
         title={`Vaga de ${job.role} na ${job.company} - GJB`}
