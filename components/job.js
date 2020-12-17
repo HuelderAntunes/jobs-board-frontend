@@ -1,6 +1,7 @@
 import styles from './job.module.css'
 import Image from 'next/image'
 import Link from 'next/link'
+
 export default function Job ({ slug, company, companyAvatar, role }) {
   return (
     <li className={styles.container}>

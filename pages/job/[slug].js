@@ -7,7 +7,9 @@ import EmailForm from '../../components/emailform'
 import Divisor from '../../components/divisor'
 import ReactMarkdown from 'react-markdown'
 import { getJobData, getJobsData } from '../../lib/jobs'
+import { toGoogleJobBoardJson } from '../../lib/googleboard'
 import Image from 'next/image'
+import Helmet from 'react-helmet'
 
 const JobPage = ({ job }) => {
   if (!job) return <></>
@@ -31,6 +33,9 @@ const JobPage = ({ job }) => {
 
   return (
     <div className={styles.container}>
+      <Helmet>
+        <script type='application/ld+json'>{toGoogleJobBoardJson(job)}</script>
+      </Helmet>
       <SEO
         title={`Vaga de ${job.role} na ${job.company} - GJB`}
         description={`A ${job.company} está com uma vaga de emprego para ${job.role}. A Games Jobs Brasil é um board de vagas de emprego na área de jogos. Encontre mais vagas para ${job.role}.`}
