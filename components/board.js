@@ -89,7 +89,7 @@ export default function Board ({ jobs, tags }) {
           {jobsFilter.length > 0 ? (
             jobsFilter.map(job => (
               <Job
-                key={job.company + job.role + job.createdAt}
+                key={job.slug}
                 company={job.company}
                 companyAvatar={job.companyAvatar}
                 role={job.role}

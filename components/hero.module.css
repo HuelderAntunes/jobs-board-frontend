@@ -83,7 +83,7 @@
 
 @media screen and (min-width: 900px) {
   .featured {
-    text-align: center;
+    text-align: right;
     width: 50%;
   }
 

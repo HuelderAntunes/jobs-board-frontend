@@ -15,7 +15,7 @@ export default function Navbar (props) {
     <nav className={styles.nav}>
       <div className={styles.title}>
         <Link href={`/`}>{props.title}</Link>
-        <span className={styles.beta_tag}>beta</span>
+        {/* <span className={styles.beta_tag}>beta</span> */}
       </div>
       <div>
         <ul className={styles.menu}>

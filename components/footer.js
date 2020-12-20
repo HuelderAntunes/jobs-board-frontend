@@ -55,17 +55,17 @@ export default function Footer () {
               <span>CONTATE-NOS</span>
               <ul className={styles.iconlist}>
                 <li>
-                  <a href='mailto:contact@fluxel.co'>
+                  <a target='_blank' href='mailto:contact@fluxel.co'>
                     <GrMail />
                   </a>
                 </li>
                 <li>
-                  <a href='https://twitter.com/gamesjobsbr'>
+                  <a target='_blank' href='https://twitter.com/gamesjobsbr'>
                     <FaTwitterSquare />
                   </a>
                 </li>
                 <li>
-                  <a href={`https://discord.gg/jvrkvFBGEM`}>
+                  <a target='_blank' href={`https://discord.gg/jvrkvFBGEM`}>
                     <FaDiscord />
                   </a>
                 </li>

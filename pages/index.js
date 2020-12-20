@@ -6,6 +6,7 @@ import Divisor from '../components/divisor'
 import EmailForm from '../components/emailform'
 import Footer from '../components/footer'
 import SEO from '../components/seo'
+import Announcement from '../components/annoucement'
 import { useRef } from 'react'
 import { getJobsData } from '../lib/jobs'
 import { getTagsData } from '../lib/tags'
@@ -23,6 +24,12 @@ export default function Home ({ jobsData, tagsData }) {
         description='Games Jobs Brasil um quadro de empregos dedicado a conectar artistas talentosos, designers, programadores, escritores e muito mais com vagas de emprego na área de jogos.'
         keywords='empregos,vagas,jogos,brasil,jobs,games,unity,unreal,godot,code,arte,3d'
       />
+      <Announcement>
+        <a target='_blank' href={`https://discord.gg/jvrkvFBGEM`}>
+          Se junte a nossa <span>comunidade no Discord</span>, e fique por
+          dentro de todas as oportunidades!
+        </a>
+      </Announcement>
       <Navbar title='GAMES JOBS BRASIL' boardRef={boardRef} />
       <main className={styles.main}>
         <Hero
