@@ -26,8 +26,8 @@ export default function Home ({ jobsData, tagsData }) {
       />
       <Announcement>
         <a target='_blank' href={`https://discord.gg/jvrkvFBGEM`}>
-          Se junte a nossa <span>comunidade no Discord</span> e fique por
-          dentro de todas as oportunidades!
+          Se junte a nossa <span>comunidade no Discord</span> e fique por dentro
+          de todas as oportunidades!
         </a>
       </Announcement>
       <Navbar title='GAMES JOBS BRASIL' boardRef={boardRef} />
