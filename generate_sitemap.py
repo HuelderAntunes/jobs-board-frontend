@@ -35,7 +35,7 @@ root = minidom.Document()
 urlset = root.createElement('urlset ')
 urlset.setAttribute('xmlns', "http://www.sitemaps.org/schemas/sitemap/0.9")
 
-add_routes([base_url, base_url + '/job'] + get_slugs())
+add_routes([base_url, base_url + '/job', base_url + '/sitemap'] + get_slugs())
 
 
 root.appendChild(urlset)
