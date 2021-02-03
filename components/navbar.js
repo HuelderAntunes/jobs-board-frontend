@@ -5,10 +5,7 @@ import Router from 'next/router'
 
 export default function Navbar (props) {
   function handleToBoardClick (e) {
-    if (!props.boardRef) {
-      return Router.push('/')
-    }
-    props.boardRef.current.scrollIntoView({ behavior: 'smooth' })
+    return Router.push('/job')
   }
 
   return (

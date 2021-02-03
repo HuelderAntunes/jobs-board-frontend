@@ -1,6 +1,6 @@
 import styles from './tag.module.css'
 
-export default function Board ({ name, selected, toggleTagFilter }) {
+export default function Board ({ name, selected, toggleTagFilter, key }) {
   return (
     <span
       onClick={toggleTagFilter}

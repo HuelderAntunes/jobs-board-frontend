@@ -144,3 +144,31 @@
   color: rgb(245, 245, 245);
 }
 
+
+.btn_all {
+  white-space: nowrap;
+  border-radius: 5px;
+  background-color: #a21afc;
+  color: #fffffe;
+  padding: 8px 32px;
+  font-weight: bold;
+  transition: all .3s ease;
+  opacity: 1;
+  cursor: pointer;
+}
+
+
+.btn_all:hover {
+  background-color: rgb(137, 53, 247);
+  transform: scale(1.05);
+  box-shadow: 0 0 0 4px rgba(102, 0, 235, 0.25);
+  cursor: pointer;
+}
+
+.see_more {
+  background-color: #F3F4F6;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

@@ -42,3 +42,22 @@
 .ReactModal__Overlay {
     z-index: 1;
 }
+
+.pagination {
+    list-style: none;
+    display:flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.pagination li {
+    background-color: #A21AFC;
+    color: #fffffe;
+    padding: 16px 16px;
+}
+
+.pagination li a {
+    width: 100%;
+    height: 100%;
+    border-radius: 5px;
+}

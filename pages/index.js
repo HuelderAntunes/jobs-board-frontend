@@ -43,6 +43,11 @@ export default function Home ({ jobsData, tagsData }) {
         <Divisor />
         <div className={styles.width} ref={boardRef}>
           <Board className={styles.board} jobs={jobs} tags={tags} />
+          <div className={styles.see_more}>
+            <a className={styles.btn_all} href='/job?p=1'>
+              Ver Mais Vagas
+            </a>
+          </div>
         </div>
         <div className={styles.spacing}></div>
         <div ref={emailFormRef} className={styles.mail}>
@@ -55,7 +60,7 @@ export default function Home ({ jobsData, tagsData }) {
 }
 
 export async function getStaticProps () {
-  const jobsData = await getJobsData()
+  const jobsData = await getJobsData(0)
   const tagsData = await getTagsData()
 
   return {
