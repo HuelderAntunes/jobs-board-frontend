@@ -16,6 +16,7 @@ export default function SEO ({ title, description, keywords }) {
         gtag('config', 'G-W4T7B1N0XJ');`
         }}
       ></script>
+      <script data-ad-client="ca-pub-0485021733329227" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
       <title>{title}</title>
 
       <meta httpEquiv='content-language' content='pt-br' />
