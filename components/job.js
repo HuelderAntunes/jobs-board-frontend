@@ -5,6 +5,7 @@ import Link from 'next/link'
 export default function Job ({ slug, company, companyAvatar, role }) {
   return (
     <li className={styles.container}>
+      <a href={`/job/${slug}`} hidden>{`Vaga de ${role} na ${company}`}</a>
       <Link href={`/job/${slug}`}>
         <div className={styles.card}>
           <div className={styles.description}>
